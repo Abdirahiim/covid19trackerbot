@@ -16,12 +16,12 @@ auth.set_access_token(AccessToken, AccessTokenSecret)
 # Creation of the actual interface using authentication
 api = tweepy.API(auth)
 
-# Retrievel of API
-response = requests.get("https://coronavirus-tracker-api.herokuapp.com/all")
-
 # Infinite loop, tweets once every 24 hours
 while True:
     try:
+        # Retrievel of API
+        response = requests.get("https://coronavirus-tracker-api.herokuapp.com/all")
+
         # Fetches JSON
         data = response.json()
         # Fetches the 'latest' node from the API
